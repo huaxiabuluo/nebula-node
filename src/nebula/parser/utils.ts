@@ -30,9 +30,10 @@ const NebulaValueTypeNameSet = new Set([
   'gVal',
 ]);
 
+
 export const getNebulaValueTypeName = (obj: NebulaValue): string => {
-  return Object.entries(obj).find(([, v]) => v !== null)?.[0];
-};
+  return _.findKey(obj, o => o !== null)
+}
 
 export const isNebulaValue = (obj: any): boolean => {
   return obj?.nVal !== undefined;
